@@ -2,11 +2,11 @@
 <html lang="tr">
 
 <head>
-    <title>ALİ KEMAL BAYRAM - Kişisel Web Sitesi</title>
+    <title>TURAY HAVACILIK - Havacılık Şirketi</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Gökhan YAVAŞ - Kişisel Web Sitesi">
-    <meta name="keywords" content="Ali Kemal Bayram, Ali Kemal, ALİ KEMAL, BAYRAM, alikemal.com">
-    <meta name="author" content="Gökhan Yavaş">
+    <meta name="description" content="TURAY HAVACILIK - Profesyonel Havacılık Hizmetleri">
+    <meta name="keywords" content="TURAY HAVACILIK, Havacılık, İHA, Uçak, Havacılık Hizmetleri">
+    <meta name="author" content="TURAY HAVACILIK">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -18,11 +18,7 @@
         body {
             font: 20px Montserrat, sans-serif;
             line-height: 1.8;
-            color: #f5f6f7;
-        }
-        
-        p {
-            font-size: 16px;
+            color: #333333;
         }
         
         .margin {
@@ -30,34 +26,23 @@
         }
         
         .bg-1 {
-            background-color: #2dde98;
-            /* Green */
-            color: #333333;
-            /* black */
+            background-color: #2a2e35;
+            color: #ffffff;
         }
         
         .bg-2 {
             background-color: #474e5d;
-            /* Dark Blue */
             color: #ffffff;
         }
         
         .bg-3 {
             background-color: #ffffff;
-            /* White */
-            color: #555555;
+            color: #333333;
         }
         
         .bg-4 {
-            background-color: #4C3173;
-            /* Blue Diamond */
+            background-color: #1c1f26;
             color: #fff;
-        }
-        
-        .bg-5 {
-            background-color: #ecebe8;
-            /* Gray */
-            color: #333;
         }
         
         .container-fluid {
@@ -76,7 +61,7 @@
         }
         
         .navbar-nav li a:hover {
-            color: #4C3173 !important;
+            color: #2dde98 !important;
         }
     </style>
 </head>
@@ -92,89 +77,46 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Gökhan YAVAŞ</a>
+                <a class="navbar-brand" href="#">TURAY HAVACILIK</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#kimdir">Kimdir?</a></li>
-                    <li><a href="#neyapar">Ne yapar?</a></li>
-                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#hakkimizda">Hakkımızda</a></li>
+                    <li><a href="#hizmetler">Hizmetler</a></li>
                     <li><a href="#iletisim">İletişim</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- First Container -->
-    <div id="kimdir" class="container-fluid bg-1 text-center">
-        <h3 class="margin">Merhaba, Ben Gökhan!</h3>
-        <img src="img/gokhans.jpg" class="img-responsive img-circle margin" style="display:inline" alt="gokhanyavas" width="350" height="350">
-        <h3>Yazılım Geliştirici</h3>
+    <!-- About Us Section -->
+    <div id="hakkimizda" class="container-fluid bg-1 text-center">
+        <h3 class="margin">TURAY HAVACILIK'a Hoşgeldiniz</h3>
+        <p>Türkiye'nin önde gelen havacılık şirketlerinden biri olarak, insansız hava araçları (İHA) ve havacılık çözümlerinde yenilikçi teknolojiler sunuyoruz.</p>
+        <img src="img/turay-logo.jpg" class="img-responsive img-circle margin" style="display:inline" alt="TURAY HAVACILIK" width="350" height="350">
     </div>
 
-    <!-- Second Container -->
-    <div id="neyapar" class="container-fluid bg-2 text-center">
-        <h3 class="margin">Neler Yaparım?</h3>
-        <p>Genellikle yazılım geliştiririm. Bol bol yurtiçi ve yurtdışı seyahatleri yapar, yeni yerler ve insanlar keşfederim. </p>
-        <a href="http://gokhanyavas.com/" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-link"></span> Siteye Git
+    <!-- Services Section -->
+    <div id="hizmetler" class="container-fluid bg-2 text-center">
+        <h3 class="margin">Hizmetlerimiz</h3>
+        <p>İleri teknoloji ile geliştirilmiş İHA'lar, uçak tasarımları ve havacılık danışmanlık hizmetleri sunuyoruz.</p>
+        <a href="#iletisim" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-envelope"></span> Bizimle İletişime Geçin
         </a>
     </div>
 
-    <!-- Third Container (Grid) -->
-    <div id="blog" class="container-fluid bg-3 text-center">
-        <h3 class="margin">Blog</h3>
-        <br>
-        <div class="row">
-            <div class="col-sm-4">
-                <p>Git, yazılım geliştirme süreçlerinde kullanılan, hız odaklı, dağıtık çalışan bir sürüm kontrol ve kaynak kod yönetim sistemidir.</p>
-                <img src="img/blog-img/git.jpg" class="img-responsive margin" style="width:100%" alt="git">
-            </div>
-            <div class="col-sm-4">
-                <p>HTML, Hiper Metin İşaretleme Dili (Hypertext Markup Language) web sayfalarını oluşturmak için kullanılan metin işleme dilidir.</p>
-                <img src="img/blog-img/html5.jpg" class="img-responsive margin" style="width:100%" alt="html">
-            </div>
-            <div class="col-sm-4">
-                <p>Python bir programlama dilidir. Diğer programlama dillerinde olduğu gibi bilgisayarlara hükmetmeyi sağlar. </p>
-                <img src="img/blog-img/python.jpg" class="img-responsive margin" style="width:100%" alt="python">
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact -->
-    <div id="iletisim" class="container-fluid bg-5 text-center">
+    <!-- Contact Section -->
+    <div id="iletisim" class="container-fluid bg-3 text-center">
         <h3 class="margin">İletişim</h3>
-        <br>
-        <div class="row ">
-            <div class="col-sm-5 text-left">
-                <p>Merhaba demek ister misin?</p>
-                <p><span class="glyphicon glyphicon-map-marker"></span> İstanbul, TR</p>
-                <p><span class="glyphicon glyphicon-phone"></span> +90 555 555 55 55</p>
-                <p><span class="glyphicon glyphicon-envelope"></span> yvsgkhn@gmail.com</p>
-            </div>
-            <div class="col-sm-7 ">
-                <div class="row">
-                    <div class="col-sm-6 form-group">
-                        <input class="form-control" id="name" name="name" placeholder="İsim" type="text" required>
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <input class="form-control" id="email" name="email" placeholder="Mail" type="email" required>
-                    </div>
-                </div>
-                <textarea class="form-control" id="comments" name="comments" placeholder="Mesaj" rows="5"></textarea>
-                <br>
-                <div class="row">
-                    <div class="col-sm-12 form-group">
-                        <button class="btn btn-default pull-right" type="submit">Gönder</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <p>İleri teknoloji çözümlerimiz hakkında daha fazla bilgi almak ister misiniz?</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span> İstanbul, TR</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +90 555 555 55 55</p>
+        <p><span class="glyphicon glyphicon-envelope"></span> info@turayhavacilik.com</p>
     </div>
 
     <!-- Footer -->
     <footer class="container-fluid bg-4 text-center">
-        <p>Tüm Hakları Ortadadır. 2008 - 2017 </br><a href="http://www.gokhanyavas.com">www.gokhanyavas.com</a></p>
+        <p>&copy; 2024 TURAY HAVACILIK</p>
         <i class="fa fa-instagram" aria-hidden="true"></i>
         <i class="fa fa-github" aria-hidden="true"></i>
         <i class="fa fa-skype" aria-hidden="true"></i>

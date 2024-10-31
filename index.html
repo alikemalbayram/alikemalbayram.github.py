@@ -20,7 +20,6 @@
             font: 20px Montserrat, sans-serif;
             line-height: 1.8;
             color: #333333;
-            overflow-y: auto;
         }
         
         .margin {
@@ -86,7 +85,8 @@
             font-size: 2.5em;
             color: #ffffff;
             opacity: 0;
-            animation: fadeInText 3s ease forwards;
+            text-align: center;
+            animation: fadeInText 4s ease forwards;
         }
 
         /* Logo fade-in animasyonu */
@@ -114,6 +114,13 @@
             to {
                 opacity: 1;
             }
+        }
+
+        /* Sosyal medya ikonlarının boyutu */
+        .social-icon {
+            font-size: 3em; /* 3 kat daha büyük */
+            margin: 0 10px;
+            color: #fff;
         }
     </style>
 </head>
@@ -174,10 +181,10 @@
     <!-- Footer -->
     <footer class="container-fluid bg-4 text-center fade-in">
         <p>&copy; 2024 TURAY HAVACILIK</p>
-        <a href="https://www.instagram.com/turaytec/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-        <a href="https://tr.linkedin.com/company/turay-havacilik" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-        <a href="https://www.youtube.com/channel/UC8FECNhgWDKDZ954zd968xA" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-        <a href="https://x.com/TurayTec" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/turaytec/" target="_blank" class="social-icon"><i class="fa fa-instagram"></i></a>
+        <a href="https://tr.linkedin.com/company/turay-havacilik" target="_blank" class="social-icon"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/channel/UC8FECNhgWDKDZ954zd968xA" target="_blank" class="social-icon"><i class="fa fa-youtube"></i></a>
+        <a href="https://x.com/TurayTec" target="_blank" class="social-icon"><i class="fa fa-twitter"></i></a>
     </footer>
 
     <script>
@@ -191,7 +198,7 @@
                         element.style.animationDelay = '0.5s';
                     });
                 }, 1000);
-            }, 3000); // Splash screen süresini 3 saniyeye çıkarıldı
+            }, 4000); // 4 saniyelik bekleme
         });
     </script>
 </body>

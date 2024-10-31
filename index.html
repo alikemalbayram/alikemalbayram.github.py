@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-        /* Genel stil */
+        /* General Styles */
         body {
             font: 20px Montserrat, sans-serif;
             line-height: 1.8;
             color: #333333;
-            overflow: hidden;
+            overflow-y: auto;
         }
         
         .margin {
@@ -30,11 +30,15 @@
         .bg-1 {
             background-color: #2a2e35;
             color: #ffffff;
+            position: relative;
+            overflow: hidden;
         }
         
         .bg-2 {
             background-color: #474e5d;
             color: #ffffff;
+            position: relative;
+            overflow: hidden;
         }
         
         .bg-3 {
@@ -45,6 +49,8 @@
         .bg-4 {
             background-color: #1c1f26;
             color: #fff;
+            position: relative;
+            overflow: hidden;
         }
         
         .container-fluid {
@@ -52,6 +58,7 @@
             padding-bottom: 70px;
         }
         
+        /* Navbar */
         .navbar {
             padding-top: 15px;
             padding-bottom: 15px;
@@ -66,53 +73,57 @@
             color: #2dde98 !important;
         }
         
-        /* Açılış ekranı stili */
-        #splash-screen {
-            position: fixed;
+        /* Intro Text Animation */
+        #intro-text {
+            font-size: 50px;
+            color: #2dde98;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid;
+            width: 0;
+            animation: typing 6s steps(50, end), blink-caret 0.75s step-end infinite;
+            margin-top: 50px;
+        }
+        
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+        
+        /* Formulas Background Animation */
+        .formulas {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 1;
-            transition: opacity 1s ease;
+            z-index: 1;
+            overflow: hidden;
         }
-
-        #splash-logo {
-            font-size: 2.5em;
-            color: #ffffff;
-            opacity: 0;
-            animation: fadeInText 2s ease forwards;
+        
+        .formula {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 18px;
+            animation: floatFormulas 15s linear infinite;
         }
-
-        /* Logo fade-in animasyonu */
-        @keyframes fadeInText {
+        
+        @keyframes floatFormulas {
             0% {
-                opacity: 0;
-                transform: scale(0.8);
+                transform: translateY(100vh);
             }
             100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* İçerik fade-in animasyonu */
-        .fade-in {
-            opacity: 0;
-            animation: fadeInContent 1s ease forwards;
-        }
-
-        @keyframes fadeInContent {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
+                transform: translateY(-100vh);
             }
         }
     </style>
@@ -120,13 +131,8 @@
 
 <body>
 
-    <!-- Açılış Ekranı -->
-    <div id="splash-screen">
-        <div id="splash-logo">TURAY HAVACILIK</div>
-    </div>
-
     <!-- Navbar -->
-    <nav class="navbar navbar-default fade-in">
+    <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -146,15 +152,21 @@
         </div>
     </nav>
 
-    <!-- Hakkımızda -->
-    <div id="hakkimizda" class="container-fluid bg-1 text-center fade-in">
+    <!-- Intro Section -->
+    <div id="intro" class="container-fluid bg-1 text-center">
+        <div id="intro-text">TURAY HAVACILIK</div>
+        <div class="formulas"></div>
+    </div>
+
+    <!-- About Us Section -->
+    <div id="hakkimizda" class="container-fluid bg-2 text-center">
         <h3 class="margin">TURAY HAVACILIK'a Hoşgeldiniz</h3>
         <p>Türkiye'nin önde gelen havacılık şirketlerinden biri olarak, insansız hava araçları (İHA) ve havacılık çözümlerinde yenilikçi teknolojiler sunuyoruz.</p>
         <img src="img/turay-logo.jpg" class="img-responsive img-circle margin" style="display:inline" alt="TURAY HAVACILIK" width="350" height="350">
     </div>
 
-    <!-- Hizmetlerimiz -->
-    <div id="hizmetler" class="container-fluid bg-2 text-center fade-in">
+    <!-- Services Section -->
+    <div id="hizmetler" class="container-fluid bg-3 text-center">
         <h3 class="margin">Hizmetlerimiz</h3>
         <p>İleri teknoloji ile geliştirilmiş İHA'lar, uçak tasarımları ve havacılık danışmanlık hizmetleri sunuyoruz.</p>
         <a href="#iletisim" class="btn btn-default btn-lg">
@@ -162,17 +174,17 @@
         </a>
     </div>
 
-    <!-- İletişim -->
-    <div id="iletisim" class="container-fluid bg-3 text-center fade-in">
+    <!-- Contact Section -->
+    <div id="iletisim" class="container-fluid bg-4 text-center">
         <h3 class="margin">İletişim</h3>
         <p>İleri teknoloji çözümlerimiz hakkında daha fazla bilgi almak ister misiniz?</p>
         <p><span class="glyphicon glyphicon-map-marker"></span> İstanbul, TR</p>
-        <p><span class="glyphicon glyphicon-phone"></span> +90 533 561 01 82</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +90 555 555 55 55</p>
         <p><span class="glyphicon glyphicon-envelope"></span> info@turayhavacilik.com</p>
     </div>
 
     <!-- Footer -->
-    <footer class="container-fluid bg-4 text-center fade-in">
+    <footer class="container-fluid bg-4 text-center">
         <p>&copy; 2024 TURAY HAVACILIK</p>
         <i class="fa fa-instagram" aria-hidden="true"></i>
         <i class="fa fa-github" aria-hidden="true"></i>
@@ -181,19 +193,30 @@
     </footer>
 
     <script>
-        // Sayfa yüklendiğinde açılış ekranını gizleme
-        window.addEventListener("load", function() {
-            setTimeout(function() {
-                document.getElementById("splash-screen").style.opacity = "0";
-                setTimeout(function() {
-                    document.getElementById("splash-screen").style.display = "none";
-                    document.querySelectorAll('.fade-in').forEach(function(element) {
-                        element.style.animationDelay = '0.5s';
-                    });
-                }, 1000);
-            }, 2000); // 2 saniyelik bekleme
+        // Formulas animation setup
+        const formulas = [
+            "E = mc^2", "F = ma", "pV = nRT", "a^2 + b^2 = c^2",
+            "v = u + at", "s = ut + 1/2at^2", "KE = 1/2mv^2",
+            "PE = mgh", "P = IV", "V = IR", "λ = h/p", "F = G(m1m2/r^2)"
+        ];
+        
+        const formulaContainer = document.querySelectorAll('.formulas');
+
+        formulaContainer.forEach(container => {
+            for (let i = 0; i < 20; i++) {
+                let formula = document.createElement("div");
+                formula.className = "formula";
+                formula.innerText = formulas[Math.floor(Math.random() * formulas.length)];
+                formula.style.left = Math.random() * 100 + "vw";
+                formula.style.animationDelay = Math.random() * 10 + "s";
+                formula.style.fontSize = Math.random() * 16 + 12
+                                formula.style.fontSize = Math.random() * 16 + 12 + "px";
+                container.appendChild(formula);
+            }
         });
     </script>
+
 </body>
 
 </html>
+

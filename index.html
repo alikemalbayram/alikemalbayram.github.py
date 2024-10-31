@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="tr">
 
 <head>
@@ -118,7 +118,7 @@
 
         /* Sosyal medya ikonlarının boyutu */
         .social-icon {
-            font-size: 3em; /* 3 kat daha büyük */
+            font-size: 3em;
             margin: 0 10px;
             color: #fff;
         }
@@ -169,6 +169,12 @@
         </a>
     </div>
 
+    <!-- X Paylaşımları Bölümü -->
+    <div id="xpaylasimlari" class="container-fluid bg-3 text-center fade-in">
+        <h3 class="margin">Son Paylaşımlarımız</h3>
+        <a class="twitter-timeline" href="https://x.com/TurayTec" data-tweet-limit="3">Tweets by TurayTec</a>
+    </div>
+
     <!-- İletişim -->
     <div id="iletisim" class="container-fluid bg-3 text-center fade-in">
         <h3 class="margin">İletişim</h3>
@@ -187,6 +193,7 @@
         <a href="https://x.com/TurayTec" target="_blank" class="social-icon"><i class="fa fa-twitter"></i></a>
     </footer>
 
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script>
         // Sayfa yüklendiğinde açılış ekranını gizleme
         window.addEventListener("load", function() {

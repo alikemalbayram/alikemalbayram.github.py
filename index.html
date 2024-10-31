@@ -15,123 +15,94 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-        /* General Styles */
+        /* Genel Stil */
         body {
             font: 20px Montserrat, sans-serif;
             line-height: 1.8;
             color: #333333;
-            overflow-y: auto;
-        }
-        
-        .margin {
-            margin-bottom: 45px;
-        }
-        
-        .bg-1 {
-            background-color: #2a2e35;
-            color: #ffffff;
-            position: relative;
             overflow: hidden;
         }
-        
-        .bg-2 {
-            background-color: #474e5d;
-            color: #ffffff;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .bg-3 {
-            background-color: #ffffff;
-            color: #333333;
-        }
-        
-        .bg-4 {
-            background-color: #1c1f26;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .container-fluid {
-            padding-top: 70px;
-            padding-bottom: 70px;
-        }
-        
-        /* Navbar */
-        .navbar {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border: 0;
-            border-radius: 0;
-            margin-bottom: 0;
-            font-size: 12px;
-            letter-spacing: 5px;
-        }
-        
-        .navbar-nav li a:hover {
-            color: #2dde98 !important;
-        }
-        
-        /* Intro Text Animation */
-        #intro-text {
-            font-size: 50px;
+
+        /* Giriş Ekranı */
+        #intro {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
             color: #2dde98;
-            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            z-index: 9999;
             overflow: hidden;
-            border-right: 4px solid;
-            width: 0;
-            animation: typing 6s steps(50, end), blink-caret 0.75s step-end infinite;
-            margin-top: 50px;
         }
-        
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
+
+        /* Giriş Yazısı */
+        #intro .intro-text {
+            font-size: 4em;
+            font-weight: bold;
         }
-        
-        @keyframes blink-caret {
-            50% {
-                border-color: transparent;
-            }
-        }
-        
-        /* Formulas Background Animation */
+
+        /* Formüller ve Kod Arka Planı */
         .formulas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            font-size: 14px;
+            color: rgba(45, 222, 152, 0.2);
             overflow: hidden;
+            pointer-events: none;
         }
-        
+
         .formula {
             position: absolute;
-            color: rgba(255, 255, 255, 0.1);
-            font-size: 18px;
-            animation: floatFormulas 15s linear infinite;
+            white-space: nowrap;
+            animation: float 10s linear infinite;
+            font-family: "Courier New", monospace;
         }
-        
-        @keyframes floatFormulas {
-            0% {
+
+        /* Formüllerin Animasyonu */
+        @keyframes float {
+            from {
                 transform: translateY(100vh);
             }
-            100% {
+
+            to {
                 transform: translateY(-100vh);
             }
+        }
+
+        /* Navbar */
+        .navbar {
+            margin-bottom: 0;
+            background-color: #2d2d2d;
+            border: 0;
+            font-size: 12px !important;
+            letter-spacing: 4px;
+            opacity: 0.9;
+        }
+
+        .navbar li a, .navbar .navbar-brand {
+            color: #2dde98 !important;
+        }
+
+        .navbar-nav li a:hover {
+            color: #000 !important;
         }
     </style>
 </head>
 
 <body>
+    <!-- Giriş Ekranı -->
+    <div id="intro">
+        <div class="intro-text"></div>
+        <div class="formulas"></div>
+    </div>
 
-    <!-- Navbar -->
+    <!-- Ana İçerik (Giriş Ekranı Kalktıktan Sonra Görünecek) -->
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -152,71 +123,63 @@
         </div>
     </nav>
 
-    <!-- Intro Section -->
-    <div id="intro" class="container-fluid bg-1 text-center">
-        <div id="intro-text">TURAY HAVACILIK</div>
-        <div class="formulas"></div>
-    </div>
+    <!-- Ana İçerik Bölümü -->
+    <div class="container text-center" style="margin-top: 100px;">
+        <h2 id="hakkimizda">Hakkımızda</h2>
+        <p>TURAY HAVACILIK, havacılık alanında inovasyon ve gelişim sağlayan bir şirkettir...</p>
 
-    <!-- About Us Section -->
-    <div id="hakkimizda" class="container-fluid bg-2 text-center">
-        <h3 class="margin">TURAY HAVACILIK'a Hoşgeldiniz</h3>
-        <p>Türkiye'nin önde gelen havacılık şirketlerinden biri olarak, insansız hava araçları (İHA) ve havacılık çözümlerinde yenilikçi teknolojiler sunuyoruz.</p>
-        <img src="img/turay-logo.jpg" class="img-responsive img-circle margin" style="display:inline" alt="TURAY HAVACILIK" width="350" height="350">
-    </div>
+        <h2 id="hizmetler">Hizmetlerimiz</h2>
+        <p>İHA geliştirme, bakım ve havacılık teknolojileri konusunda uzman kadromuzla hizmet veriyoruz...</p>
 
-    <!-- Services Section -->
-    <div id="hizmetler" class="container-fluid bg-3 text-center">
-        <h3 class="margin">Hizmetlerimiz</h3>
-        <p>İleri teknoloji ile geliştirilmiş İHA'lar, uçak tasarımları ve havacılık danışmanlık hizmetleri sunuyoruz.</p>
-        <a href="#iletisim" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-envelope"></span> Bizimle İletişime Geçin
-        </a>
+        <h2 id="iletisim">İletişim</h2>
+        <p>Bize ulaşmak için sosyal medya hesaplarımızı ziyaret edebilir veya e-posta yoluyla iletişime geçebilirsiniz...</p>
     </div>
-
-    <!-- Contact Section -->
-    <div id="iletisim" class="container-fluid bg-4 text-center">
-        <h3 class="margin">İletişim</h3>
-        <p>İleri teknoloji çözümlerimiz hakkında daha fazla bilgi almak ister misiniz?</p>
-        <p><span class="glyphicon glyphicon-map-marker"></span> İstanbul, TR</p>
-        <p><span class="glyphicon glyphicon-phone"></span> +90 555 555 55 55</p>
-        <p><span class="glyphicon glyphicon-envelope"></span> info@turayhavacilik.com</p>
-    </div>
-
-    <!-- Footer -->
-    <footer class="container-fluid bg-4 text-center">
-        <p>&copy; 2024 TURAY HAVACILIK</p>
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-        <i class="fa fa-github" aria-hidden="true"></i>
-        <i class="fa fa-skype" aria-hidden="true"></i>
-        <i class="fa fa-linkedin" aria-hidden="true"></i>
-    </footer>
 
     <script>
-        // Formulas animation setup
-        const formulas = [
-            "E = mc^2", "F = ma", "pV = nRT", "a^2 + b^2 = c^2",
-            "v = u + at", "s = ut + 1/2at^2", "KE = 1/2mv^2",
-            "PE = mgh", "P = IV", "V = IR", "λ = h/p", "F = G(m1m2/r^2)"
-        ];
-        
-        const formulaContainer = document.querySelectorAll('.formulas');
+        // Giriş Yazısını Yavaşça Yazdırma
+        const introText = document.querySelector(".intro-text");
+        const text = "TURAY HAVACILIK";
+        let i = 0;
 
-        formulaContainer.forEach(container => {
-            for (let i = 0; i < 20; i++) {
-                let formula = document.createElement("div");
-                formula.className = "formula";
-                formula.innerText = formulas[Math.floor(Math.random() * formulas.length)];
+        function typeText() {
+            if (i < text.length) {
+                introText.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeText, 300); // Hızı ayarlayabilirsiniz
+            } else {
+                setTimeout(() => {
+                    document.getElementById("intro").style.display = "none"; // Giriş ekranını gizle
+                    document.body.style.overflow = "auto"; // Scroll özelliğini aç
+                }, 2000); // Ekranda kalma süresi
+            }
+        }
+
+        typeText();
+
+        // Formülleri Ekrana Rastgele Yayma
+        const formulas = [
+            "F = ma", "E = mc^2", "P = IV", "a^2 + b^2 = c^2", "V = IR", "s = ut + 1/2at^2",
+            "Δp = FΔt", "v = fλ", "W = Fd", "F_g = G(m1m2/r^2)", "PV = nRT", "λ = h/p",
+            "Q = mcΔT", "F = q(E + v × B)", "P = W/t", "∫E · dl = -dΦB/dt", "∇ × B = μ0(J + ε0dE/dt)",
+            "dS = ∫E·dA", "i = dq/dt", "ω = θ/t", "ΣF = ma", "T = 2π√(m/k)", "γ = (1 - v^2/c^2)^-1/2",
+            "E = hf", "c = λν", "τ = Iα", "ΔKE = 1/2mv^2 - 1/2mu^2", "pV = nRT", "f = qE",
+            "v = √(2gh)", "θ = ωt + 1/2αt^2", "s = rθ", "p = h/λ"
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector(".formulas");
+            for (let i = 0; i < 100; i++) {  // Yoğunluk için sayı arttırıldı
+                const formula = document.createElement("div");
+                formula.classList.add("formula");
+                formula.textContent = formulas[Math.floor(Math.random() * formulas.length)];
+                formula.style.top = Math.random() * 100 + "vh";
                 formula.style.left = Math.random() * 100 + "vw";
-                formula.style.animationDelay = Math.random() * 10 + "s";
-                formula.style.fontSize = Math.random() * 16 + 12
-                                formula.style.fontSize = Math.random() * 16 + 12 + "px";
+                formula.style.animationDuration = Math.random() * 8 + 6 + "s"; // Farklı hızlarda kayma
+                formula.style.fontSize = Math.random() * 18 + 10 + "px";
                 container.appendChild(formula);
             }
         });
     </script>
-
 </body>
 
 </html>
-

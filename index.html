@@ -15,95 +15,118 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-        /* Genel Stil */
+        /* Genel stil */
         body {
             font: 20px Montserrat, sans-serif;
             line-height: 1.8;
             color: #333333;
-            overflow: hidden;
+            overflow-y: auto;
         }
-
-        /* Giriş Ekranı */
-        #intro {
+        
+        .margin {
+            margin-bottom: 45px;
+        }
+        
+        .bg-1 {
+            background-color: #2a2e35;
+            color: #ffffff;
+        }
+        
+        .bg-2 {
+            background-color: #474e5d;
+            color: #ffffff;
+        }
+        
+        .bg-3 {
+            background-color: #ffffff;
+            color: #333333;
+        }
+        
+        .bg-4 {
+            background-color: #1c1f26;
+            color: #fff;
+        }
+        
+        .container-fluid {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+        
+        .navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            letter-spacing: 5px;
+        }
+        
+        .navbar-nav li a:hover {
+            color: #2dde98 !important;
+        }
+        
+        /* Açılış ekranı stili */
+        #splash-screen {
             position: fixed;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            color: #2dde98;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3em;
-            z-index: 9999;
-            overflow: hidden;
-        }
-
-        /* Giriş Yazısı */
-        #intro .intro-text {
-            font-size: 4em;
-            font-weight: bold;
-        }
-
-        /* Formüller ve Kod Arka Planı */
-        .formulas {
-            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            font-size: 14px;
-            color: rgba(45, 222, 152, 0.2);
-            overflow: hidden;
-            pointer-events: none;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease;
         }
 
-        .formula {
-            position: absolute;
-            white-space: nowrap;
-            animation: float 10s linear infinite;
-            font-family: "Courier New", monospace;
+        #splash-logo {
+            font-size: 2.5em;
+            color: #ffffff;
+            opacity: 0;
+            animation: fadeInText 3s ease forwards;
         }
 
-        /* Formüllerin Animasyonu */
-        @keyframes float {
+        /* Logo fade-in animasyonu */
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* İçerik fade-in animasyonu */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInContent 1s ease forwards;
+        }
+
+        @keyframes fadeInContent {
             from {
-                transform: translateY(100vh);
+                opacity: 0;
             }
-
             to {
-                transform: translateY(-100vh);
+                opacity: 1;
             }
-        }
-
-        /* Navbar */
-        .navbar {
-            margin-bottom: 0;
-            background-color: #2d2d2d;
-            border: 0;
-            font-size: 12px !important;
-            letter-spacing: 4px;
-            opacity: 0.9;
-        }
-
-        .navbar li a, .navbar .navbar-brand {
-            color: #2dde98 !important;
-        }
-
-        .navbar-nav li a:hover {
-            color: #000 !important;
         }
     </style>
 </head>
 
 <body>
-    <!-- Giriş Ekranı -->
-    <div id="intro">
-        <div class="intro-text"></div>
-        <div class="formulas"></div>
+
+    <!-- Açılış Ekranı -->
+    <div id="splash-screen">
+        <div id="splash-logo">TURAY HAVACILIK</div>
     </div>
 
-    <!-- Ana İçerik (Giriş Ekranı Kalktıktan Sonra Görünecek) -->
-    <nav class="navbar navbar-default">
+    <!-- Navbar -->
+    <nav class="navbar navbar-default fade-in">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -123,61 +146,52 @@
         </div>
     </nav>
 
-    <!-- Ana İçerik Bölümü -->
-    <div class="container text-center" style="margin-top: 100px;">
-        <h2 id="hakkimizda">Hakkımızda</h2>
-        <p>TURAY HAVACILIK, havacılık alanında inovasyon ve gelişim sağlayan bir şirkettir...</p>
-
-        <h2 id="hizmetler">Hizmetlerimiz</h2>
-        <p>İHA geliştirme, bakım ve havacılık teknolojileri konusunda uzman kadromuzla hizmet veriyoruz...</p>
-
-        <h2 id="iletisim">İletişim</h2>
-        <p>Bize ulaşmak için sosyal medya hesaplarımızı ziyaret edebilir veya e-posta yoluyla iletişime geçebilirsiniz...</p>
+    <!-- Hakkımızda -->
+    <div id="hakkimizda" class="container-fluid bg-1 text-center fade-in">
+        <h3 class="margin">TURAY HAVACILIK'a Hoşgeldiniz</h3>
+        <p>Türkiye'nin önde gelen havacılık şirketlerinden biri olarak, insansız hava araçları (İHA) ve havacılık çözümlerinde yenilikçi teknolojiler sunuyoruz.</p>
+        <img src="img/turay-logo.jpg" class="img-responsive img-circle margin" style="display:inline" alt="TURAY HAVACILIK" width="350" height="350">
     </div>
 
+    <!-- Hizmetlerimiz -->
+    <div id="hizmetler" class="container-fluid bg-2 text-center fade-in">
+        <h3 class="margin">Hizmetlerimiz</h3>
+        <p>İleri teknoloji ile geliştirilmiş İHA'lar, uçak tasarımları ve havacılık danışmanlık hizmetleri sunuyoruz.</p>
+        <a href="#iletisim" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-envelope"></span> Bizimle İletişime Geçin
+        </a>
+    </div>
+
+    <!-- İletişim -->
+    <div id="iletisim" class="container-fluid bg-3 text-center fade-in">
+        <h3 class="margin">İletişim</h3>
+        <p>İleri teknoloji çözümlerimiz hakkında daha fazla bilgi almak ister misiniz?</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span> İstanbul, TR</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +90 555 555 55 55</p>
+        <p><span class="glyphicon glyphicon-envelope"></span> info@turayhavacilik.com</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container-fluid bg-4 text-center fade-in">
+        <p>&copy; 2024 TURAY HAVACILIK</p>
+        <a href="https://www.instagram.com/turaytec/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://tr.linkedin.com/company/turay-havacilik" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/channel/UC8FECNhgWDKDZ954zd968xA" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        <a href="https://x.com/TurayTec" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    </footer>
+
     <script>
-        // Giriş Yazısını Yavaşça Yazdırma
-        const introText = document.querySelector(".intro-text");
-        const text = "TURAY HAVACILIK";
-        let i = 0;
-
-        function typeText() {
-            if (i < text.length) {
-                introText.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeText, 300); // Hızı ayarlayabilirsiniz
-            } else {
-                setTimeout(() => {
-                    document.getElementById("intro").style.display = "none"; // Giriş ekranını gizle
-                    document.body.style.overflow = "auto"; // Scroll özelliğini aç
-                }, 2000); // Ekranda kalma süresi
-            }
-        }
-
-        typeText();
-
-        // Formülleri Ekrana Rastgele Yayma
-        const formulas = [
-            "F = ma", "E = mc^2", "P = IV", "a^2 + b^2 = c^2", "V = IR", "s = ut + 1/2at^2",
-            "Δp = FΔt", "v = fλ", "W = Fd", "F_g = G(m1m2/r^2)", "PV = nRT", "λ = h/p",
-            "Q = mcΔT", "F = q(E + v × B)", "P = W/t", "∫E · dl = -dΦB/dt", "∇ × B = μ0(J + ε0dE/dt)",
-            "dS = ∫E·dA", "i = dq/dt", "ω = θ/t", "ΣF = ma", "T = 2π√(m/k)", "γ = (1 - v^2/c^2)^-1/2",
-            "E = hf", "c = λν", "τ = Iα", "ΔKE = 1/2mv^2 - 1/2mu^2", "pV = nRT", "f = qE",
-            "v = √(2gh)", "θ = ωt + 1/2αt^2", "s = rθ", "p = h/λ"
-        ];
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector(".formulas");
-            for (let i = 0; i < 100; i++) {  // Yoğunluk için sayı arttırıldı
-                const formula = document.createElement("div");
-                formula.classList.add("formula");
-                formula.textContent = formulas[Math.floor(Math.random() * formulas.length)];
-                formula.style.top = Math.random() * 100 + "vh";
-                formula.style.left = Math.random() * 100 + "vw";
-                formula.style.animationDuration = Math.random() * 8 + 6 + "s"; // Farklı hızlarda kayma
-                formula.style.fontSize = Math.random() * 18 + 10 + "px";
-                container.appendChild(formula);
-            }
+        // Sayfa yüklendiğinde açılış ekranını gizleme
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                document.getElementById("splash-screen").style.opacity = "0";
+                setTimeout(function() {
+                    document.getElementById("splash-screen").style.display = "none";
+                    document.querySelectorAll('.fade-in').forEach(function(element) {
+                        element.style.animationDelay = '0.5s';
+                    });
+                }, 1000);
+            }, 3000); // Splash screen süresini 3 saniyeye çıkarıldı
         });
     </script>
 </body>

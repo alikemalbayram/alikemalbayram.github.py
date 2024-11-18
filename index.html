@@ -63,6 +63,54 @@
         .navbar-nav li a:hover {
             color: #2dde98 !important;
         }
+        
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        #splash-logo {
+            font-size: 2.5em;
+            color: #ffffff;
+            opacity: 0;
+            text-align: center;
+            animation: fadeInText 4s ease forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInContent 1s ease forwards;
+        }
+
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
 
         .social-icon {
             font-size: 3em;
@@ -99,6 +147,13 @@
             </div>
         </div>
     </nav>
+
+    <!-- Hakkımızda -->
+    <div id="hakkimizda" class="container-fluid bg-1 text-center fade-in">
+        <h3 class="margin">TURAY HAVACILIK'a Hoşgeldiniz</h3>
+        <p>Türkiye'nin önde gelen havacılık şirketlerinden biri olarak, insansız hava araçları (İHA) ve havacılık çözümlerinde yenilikçi teknolojiler sunuyoruz.</p>
+        <img src="img/turay-logo.jpg" class="img-responsive img-circle margin" style="display:inline" alt="TURAY HAVACILIK" width="350" height="350">
+    </div>
 
     <!-- Carousel Bölümü -->
     <div id="carousel" class="container-fluid fade-in">
@@ -143,12 +198,6 @@
         </div>
     </div>
 
-    <!-- Hakkımızda -->
-    <div id="hakkimizda" class="container-fluid bg-1 text-center fade-in">
-        <h3 class="margin">TURAY HAVACILIK'a Hoşgeldiniz</h3>
-        <p>Türkiye'nin önde gelen havacılık şirketlerinden biri olarak, insansız hava araçları (İHA) ve havacılık çözümlerinde yenilikçi teknolojiler sunuyoruz.</p>
-    </div>
-
     <!-- Hizmetlerimiz -->
     <div id="hizmetler" class="container-fluid bg-2 text-center fade-in">
         <h3 class="margin">Hizmetlerimiz</h3>
@@ -156,6 +205,12 @@
         <a href="#iletisim" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-envelope"></span> Bizimle İletişime Geçin
         </a>
+    </div>
+
+    <!-- X Paylaşımları Bölümü -->
+    <div id="xpaylasimlari" class="container-fluid bg-3 text-center fade-in">
+        <h3 class="margin">Son Paylaşımlarımız</h3>
+        <a class="twitter-timeline" href="https://x.com/TurayTec" data-tweet-limit="3">Tweets by TurayTec</a>
     </div>
 
     <!-- İletişim -->
@@ -182,6 +237,7 @@
         <a href="https://x.com/TurayTec" target="_blank" class="social-icon"><i class="fa fa-twitter"></i></a>
     </footer>
 
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script>
         // Sayfa yüklendiğinde açılış ekranını gizleme
         window.addEventListener("load", function() {
@@ -189,13 +245,11 @@
                 document.getElementById("splash-screen").style.opacity = "0";
                 setTimeout(function() {
                     document.getElementById("splash-screen").style.display = "none";
+                    document.querySelectorAll('.fade-in').forEach(function(element) {
+                        element.style.animationDelay = '0.5s';
+                    });
                 }, 1000);
             }, 4000); // 4 saniyelik bekleme
-        });
-
-        // Carousel animasyonunu yavaşlat
-        $('.carousel').carousel({
-            interval: 5000 // 5 saniyede bir geçiş
         });
     </script>
 </body>
